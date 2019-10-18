@@ -1,5 +1,13 @@
 <div class="container">
     <div class = "jumbotron">
         <h1>Pass me the aux</h1>
+        <% if logged_in? %>
+            <% if current_user.name %>
+                <h1><%= current_user.name %></h1>
+            <% end %>
+            <% if current_user.image_url %>
+                <%= image_tag current_user.image_url, class: "img-circle", width: 24 %>
+            <% end %>
+        <% end %>
     </div>
 </div>
