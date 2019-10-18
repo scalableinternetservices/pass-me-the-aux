@@ -58,3 +58,7 @@ gem 'bootstrap', '~> 4.0.0'
 
 # Add JQuery for bootstrap
 gem 'jquery-rails'
+
+# Add google oAuth
+gem 'omniauth-google-oauth2'
+gem "omniauth"
