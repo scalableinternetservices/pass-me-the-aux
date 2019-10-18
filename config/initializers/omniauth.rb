@@ -1,5 +1,6 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
 
   provider :google_oauth2, Rails.application.credentials.dig(:client_id),
-                           Rails.application.credentials.dig(:client_secret)
+                           Rails.application.credentials.dig(:client_secret), 
+                           skip_jwt: true
 end
