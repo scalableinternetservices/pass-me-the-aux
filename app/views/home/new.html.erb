@@ -8,6 +8,7 @@
             <% if current_user.image_url %>
                 <%= image_tag current_user.image_url, class: "img-circle", width: 24 %>
             <% end %>
+            <%= link_to "(logout)", logout_path %>
         <% end %>
     </div>
 </div>
