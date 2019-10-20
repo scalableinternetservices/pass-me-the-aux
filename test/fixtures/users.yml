@@ -2,10 +2,14 @@
 
 one:
   name: MyString
+  email: MyString
+  role: 1
   id: MyString
   image_url: MyString
 
 two:
   name: MyString
+  email: MyString
+  role: 1
   id: MyString
   image_url: MyString
