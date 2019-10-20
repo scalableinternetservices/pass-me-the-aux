@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'home/', to: "home#new"
+  get 'home/recommend', to: "home#recommend"
+  get 'home/recommendee', to: "home#recommendee"
   get 'sessions/create'
   get 'welcome/index'
   get "/login", to: redirect("/auth/google_oauth2")
