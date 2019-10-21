@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  requestor_name: MyString
+  requestor_id: MyString
+  url_to_song: MyString
+  recommender_name: MyString
+  recommender_id: MyString
+  verdict: 1
+
+two:
+  requestor_name: MyString
+  requestor_id: MyString
+  url_to_song: MyString
+  recommender_name: MyString
+  recommender_id: MyString
+  verdict: 1
