@@ -1,5 +1,4 @@
 class HomeController < ApplicationController
-include SessionsHelper
   def new
     if logged_in?
       render 'chooserole'
@@ -8,9 +7,12 @@ include SessionsHelper
     end 
   end
   def recommend
+    User.where(id: session[:user_id]).update_all(role: 0)
     render 'recommend'
   end
   def recommendee
+    User.where(id: session[:user_id]).update_all(role: 1)
     render 'recommendee'
   end
+
 end

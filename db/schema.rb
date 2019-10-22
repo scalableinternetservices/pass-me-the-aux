@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2019_10_21_003218) do
 
   create_table "recommendations", force: :cascade do |t|
@@ -26,6 +25,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_003218) do
 
   create_table "users", id: false, force: :cascade do |t|
     t.string "name"
+    t.string "email"
+    t.integer "role"
     t.string "id"
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
