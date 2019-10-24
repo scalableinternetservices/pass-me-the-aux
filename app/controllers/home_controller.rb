@@ -7,12 +7,17 @@ class HomeController < ApplicationController
     end 
   end
   def recommend
-    User.where(id: session[:user_id]).update_all(role: 0)
+    update_role(0)
     render 'recommend'
   end
   def recommendee
-    User.where(id: session[:user_id]).update_all(role: 1)
-    render 'recommendee'
+    update_role(1)
+    status = enter_recommendee
+    if status == 0
+      render 'recommendee-waiting'
+    else 
+      redirect_to 'recommendee-recommended'
+    end
   end
 
 end

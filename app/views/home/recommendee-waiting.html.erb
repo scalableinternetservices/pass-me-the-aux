@@ -1,0 +1,9 @@
+<div class="container">
+    <div class = "jumbotron">
+        <h1>Pass me the aux</h1>
+        <h1><%= current_user.name %></h1>
+        <%= image_tag current_user.image_url, class: "img-circle", width: 24 %>
+        <%= link_to "(logout)", logout_path %>
+        <h1>You are waiting</h1>
+    </div>
+</div>
