@@ -1,6 +1,6 @@
 module SessionsHelper
     def logged_in?
-        session.has_key? :user
+        (session.has_key? :user) && !(User.find_by(id: session[:user_id]).nil?)
     end
 
     def current_user
