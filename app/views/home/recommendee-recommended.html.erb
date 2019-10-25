@@ -1,12 +1,15 @@
-<div class="container">
-    <div class = "jumbotron">
-        <%= image_tag current_user.image_url, class: "img-circle", width: 100 %>
-        <h1><%= "____ recommended you the following song: " %></h1>
-        <center><h1>URL</h1></center>
-        <h1>COPY</h1>
-        <h2>How was the recommendation?</h2>
-        
+<div class="recommendee-recommended-container">
+    <%= link_to "Logout", logout_path, class: 'smaller corner'%>
+    <div class='recommended-box-container'>
+        <h3> <%= image_tag current_user.image_url, class: "img-circle", width: 72 %> <b><%= current_user.name %></b> recommended you the following song: </h3>
+        <h2><b>URL</b></h2>
+        <div class="url-container">
 
-        <!-- <%= link_to "(logout)", logout_path %> -->
+        </div>
+        <div class="buttons-container">
+            <%= link_to "COPY", "", class: 'medium'%>
+        </div>
     </div>
+
+    <!-- <h2>How was the recommendation?</h2> -->
 </div>
