@@ -1,4 +1,5 @@
 class HomeController < ApplicationController
+  include RecommenderHelper
   def new
     if logged_in?
       render 'chooserole'
@@ -8,6 +9,7 @@ class HomeController < ApplicationController
   end
   def recommend
     update_role(0)
+    rec = find_current_recommendee
     render 'recommend'
   end
   def recommendee
