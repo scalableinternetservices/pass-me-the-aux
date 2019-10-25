@@ -12,6 +12,9 @@ class HomeController < ApplicationController
     @currentrecommendation = find_current_recommendee
     render 'recommender-recommending'
   end
+  def updaterecommendationsong
+    
+  end
   def recommendee
     update_role(1)
     status = enter_recommendee
