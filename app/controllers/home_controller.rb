@@ -15,8 +15,9 @@ class HomeController < ApplicationController
     status = enter_recommendee
     if status == 0
       render 'recommendee-waiting'
-    else 
-      redirect_to 'recommendee-recommended'
+    else
+      @rec = Recommendation.find_by(requestor_id: session[:user_id])
+      render 'recommendee-recommended'
     end
   end
 

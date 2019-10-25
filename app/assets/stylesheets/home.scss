@@ -6,26 +6,141 @@ h1 {
     font-size: 32px; 
 }
 
+h3 {
+  font-family: "Avenir Next";
+}
+
+.h1-title { 
+  font-family: "Avenir Next";
+  font-weight: bold;
+  font-size: 80px; 
+  padding: 20px;
+}
+
+.h3-title { 
+  font-family: "Avenir Next";
+  font-weight: bold;
+  font-size: 20px; 
+  padding: 5px;
+}
+
+.corner {
+  align-self: flex-end;
+}
+
+.img-circle {
+  border-radius: 50%;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+}
+
+.recommendee-recommended-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+.recommended-box-container {
+  border: 3px solid black;
+  border-radius: 5px; 
+  height: 800px;
+  width: 800px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction:column
+}
+
+.choice-container {
+  height: 200px;
+  width: 1000px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.url-container {
+  border: 3px solid black;
+  border-radius: 5px; 
+  height: 10%;
+  width: 600px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .recommendee-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
     
 }
 
-.default-button {
+.user-container {
+  border: 3px solid black;
+  border-radius: 5px; 
+  height: 400px;
+  width: 60%;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  width: 100vh;
+}
+
+%default-button {
     border: 3px solid black;
-    border-radius: 2px; 
+    border-radius: 5px; 
     color: black;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 12px;
     font-family: "Avenir Next";
-  }
+}
+
+.larger {
+  @extend %default-button;
+  font-size: 32px;
+  font-weight: 600;
+  padding: 22px 42px;
+  border: 5px solid black;
+  border-radius: 5px; 
+}
+
+.medium {
+  @extend %default-button;
+  font-size: 15px;
+  padding: 15px 32px;
+}
+
+.smaller {
+  @extend %default-button;
+  padding: 12px 24px;
+  font-size: 12px;
+  border: none;
+}
 
   .loading {
     overflow: hidden;
