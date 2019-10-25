@@ -9,8 +9,8 @@ class HomeController < ApplicationController
   end
   def recommend
     update_role(0)
-    rec = find_current_recommendee
-    render 'recommend'
+    @currentrecommendation = find_current_recommendee
+    render 'recommender-recommending'
   end
   def recommendee
     update_role(1)
