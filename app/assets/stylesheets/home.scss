@@ -33,6 +33,38 @@ h3 {
   height: 60vh;
 }
 
+.recommendee-recommended-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 60vh;
+}
+
+.recommended-box-container {
+  border: 3px solid black;
+  border-radius: 5px; 
+  height: 800px;
+  width: 800px;
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction:column
+}
+
+.url-container {
+  border: 3px solid black;
+  border-radius: 5px; 
+  height: 20%;
+  width: 400px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .recommendee-container {
   display: flex;
   justify-content: center;
