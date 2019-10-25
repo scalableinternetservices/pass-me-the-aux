@@ -1,9 +1,19 @@
-<div class="container">
-    <h1>Pass me the aux</h1>
-    <h1><%= current_user.name %></h1>
-    <%= image_tag current_user.image_url, class: "img-circle", width: 24 %>
-    <%= link_to "(logout)", logout_path %>
-    <h1>RECOMMENDER PAGE</h1>
-    <h1>Make recommendation to:</h1>
+<div class="home-container">
+    <%= link_to "Logout", logout_path, class: 'smaller corner'%>
+    <div class='user-container'>
+        <h1>You've Got the AUX, <%= current_user.name %></h1>
+    </div>
+    <h1>Now Make a Recommendation to:</h1>
     <h1><%= @currentrecommendation.requestor_name %></h1>
+    <div class="song-input">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text" id="basic-addon3">youtube.com/</div>
+            </div>
+            <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+        </div>
+    </div>
+    <div class="buttons-container">
+        <%= link_to "Submit", home_recommend_path, class: 'medium' %>
+    </div>
 </div>
