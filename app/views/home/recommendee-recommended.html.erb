@@ -1,10 +1,12 @@
 <div class="container">
     <div class = "jumbotron">
-        <h1>Pass me the aux</h1>
-        <h1><%= current_user.name %></h1>
-        <h1><%= "you got a song!" %></h1>
         <%= image_tag current_user.image_url, class: "img-circle", width: 100 %>
+        <h1><%= "____ recommended you the following song: " %></h1>
+        <center><h1>URL</h1></center>
+        <h1>COPY</h1>
+        <h2>How was the recommendation?</h2>
         
+
         <!-- <%= link_to "(logout)", logout_path %> -->
     </div>
 </div>
