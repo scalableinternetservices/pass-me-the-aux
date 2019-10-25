@@ -1,10 +1,10 @@
 <div class="recommendee-recommended-container">
     <%= link_to "Logout", logout_path, class: 'smaller corner'%>
     <div class='recommended-box-container'>
-        <h3> <%= image_tag current_user.image_url, class: "img-circle", width: 72 %> <b><%= current_user.name %></b> recommended you the following song: </h3>
+        <h3><b><%= @rec.recommender_name %></b> recommended you the following song: </h3>
         <h2><b>URL</b></h2>
         <div class="url-container">
-
+            <%= @rec.url_to_song %>
         </div>
         <div class="buttons-container">
             <%= link_to "COPY", "", class: 'medium'%>
@@ -17,7 +17,7 @@
             <%= link_to "Listened before, LIKED", "", class: 'medium'%>
         </div>
         <div class="buttons-container">
-            <%= link_to "New Song,    LIKED", "", class: 'medium'%>
+            <%= link_to "New Song, LIKED", "", class: 'medium'%>
         </div>
         <div class="buttons-container">
             <%= link_to "New Song, DISLIKED", "", class: 'medium'%>
@@ -27,3 +27,5 @@
         </div>
     </div>
 </div>
+
+<!-- <%= image_tag current_user.image_url, class: "img-circle", width: 72 %> -->
