@@ -1,0 +1,9 @@
+<div class="container">
+    <h1>Pass me the aux</h1>
+    <h1><%= current_user.name %></h1>
+    <%= image_tag current_user.image_url, class: "img-circle", width: 24 %>
+    <%= link_to "(logout)", logout_path %>
+    <h1>RECOMMENDER PAGE</h1>
+    <h1>Make recommendation to:</h1>
+    <h1><%= @currentrecommendation.requestor_name %></h1>
+</div>
