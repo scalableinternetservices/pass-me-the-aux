@@ -16,7 +16,7 @@ class HomeController < ApplicationController
     if status == 0
       render 'recommendee-waiting'
     else 
-      redirect_to 'recommendee-recommended'
+      render 'recommendee-recommended'
     end
   end
 
