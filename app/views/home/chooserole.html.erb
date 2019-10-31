@@ -1,0 +1,14 @@
+<div class="home-container">
+    <%= link_to "Logout", logout_path, class: 'smaller corner'%>
+    <h1 class="h1-title">PASS  ME THE AUX</h1>
+    <div class='user-container'>
+    <%= image_tag current_user.image_url, class: "img-circle", width: 48 %>
+    <h3> <%= current_user.name %> </h3>
+    <h3> 5 songs </h3>
+    </div> 
+    <div class="buttons-container">
+        <%= link_to "Recommend", home_recommend_path, class: 'medium' %>
+        <%= link_to "Be Recommended", home_recommendee_path, class: 'medium' %>
+    </div>
+
+</div>

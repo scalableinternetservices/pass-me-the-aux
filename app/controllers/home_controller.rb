@@ -1,10 +1,24 @@
 class HomeController < ApplicationController
-include SessionsHelper
   def new
     if logged_in?
-      render 'new'
+      render 'chooserole'
     else
       redirect_to login_path
     end 
   end
+  def recommend
+    update_role(0)
+    render 'recommend'
+  end
+  def recommendee
+    update_role(1)
+    status = enter_recommendee
+    if status == 0
+      render 'recommendee-waiting'
+    else
+      @rec = Recommendation.find_by(requestor_id: session[:user_id])
+      render 'recommendee-recommended'
+    end
+  end
+
 end
