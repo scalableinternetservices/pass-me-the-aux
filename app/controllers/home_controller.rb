@@ -10,10 +10,19 @@ class HomeController < ApplicationController
   def recommend
     update_role(0)
     @currentrecommendation = find_current_recommendee
-    render 'recommender-recommending'
-  end
-  def updaterecommendationsong
-    
+    if @currentrecommendation == nil
+      render 'recommender-noneavailable'
+      return
+    end
+    song_url = params[:song_url]
+    if song_url != nil
+        update_recommendation(song_url)
+        render 'recommender-success'
+        return
+    else
+      render 'recommender-recommending'
+      return
+    end
   end
   def recommendee
     update_role(1)
