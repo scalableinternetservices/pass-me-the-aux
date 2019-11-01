@@ -36,7 +36,7 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    Recommendation.where(requestor_id: session[:user_id]).update_all(verdict: params[:param_1])
-    render 'chooserole'
+    Recommendation.where(requestor_id: session[:user_id]).update_all(verdict: params[:verdict])
+    redirect_to home_path
   end
 end

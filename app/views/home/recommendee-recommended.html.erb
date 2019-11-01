@@ -14,16 +14,16 @@
     <h1 class="h3-title">How was the recommendation?</h1>
     <div class='choice-container'>
         <div class="buttons-container">
-            <%= link_to "Listened before, LIKED", home_feedback_path(param_1: 1), class: 'medium'%>
+            <%= link_to "Listened before, LIKED", home_feedback_path(verdict: 1), class: 'medium'%>
         </div>
         <div class="buttons-container">
-            <%= link_to "New Song, LIKED", home_feedback_path(param_1: 2), class: 'medium'%>
+            <%= link_to "New Song, LIKED", home_feedback_path(verdict: 2), class: 'medium'%>
         </div>
         <div class="buttons-container">
-            <%= link_to "New Song, DISLIKED", home_feedback_path(param_1: 3), class: 'medium'%>
+            <%= link_to "New Song, DISLIKED", home_feedback_path(verdict: 3), class: 'medium'%>
         </div>
         <div class="buttons-container">
-            <%= link_to "Listened before, DISLIKED", home_feedback_path(param_1: 4), class: 'medium'%>
+            <%= link_to "Listened before, DISLIKED", home_feedback_path(verdict: 4), class: 'medium'%>
         </div>
     </div>
 </div>
