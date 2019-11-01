@@ -50,8 +50,20 @@ ul li {
   padding: 5px;
 }
 
+.top-buttons {    
+  display:flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100vw;
+}
+
 .corner {
   align-self: flex-end;
+  margin-top: 15px;
+}
+
+.left-corner {
+  align-self: flex-start;
   margin-top: 15px;
 }
 
@@ -64,23 +76,22 @@ ul li {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 140vh;
+  width: 100%;
 }
 
 .recommendee-recommended-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  height: 100%;
 }
 
 .recommended-box-container {
   border: 3px solid black;
   border-radius: 5px; 
-  height: 800px;
+  height: 400px;
   width: 800px;
-  padding: 20px;
+  padding: 20px; 
   margin-bottom: 20px;
   display: flex;
   justify-content: space-around;
@@ -124,7 +135,7 @@ ul li {
 .user-container {
   border: 3px solid black;
   border-radius: 5px; 
-  height: 400px;
+  height: 200px;
   width: 60%;
   margin-bottom: 50px;
   display: flex;
@@ -173,24 +184,24 @@ ul li {
   border: none;
 }
 
-  .loading {
-    overflow: hidden;
-    display: inline-block;
-    vertical-align: bottom;
-    -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
-    animation: ellipsis steps(4,end) 900ms infinite;
-    content: "\2026"; /* ascii code for the ellipsis character */
-    width: 0px;
+.loading {
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+  -webkit-animation: ellipsis steps(4,end) 900ms infinite;      
+  animation: ellipsis steps(4,end) 900ms infinite;
+  content: "\2026"; /* ascii code for the ellipsis character */
+  width: 0px;
+}
+
+@keyframes ellipsis {
+  to {
+    width: 1.25em;    
   }
-  
-  @keyframes ellipsis {
-    to {
-      width: 1.25em;    
-    }
+}
+
+@-webkit-keyframes ellipsis {
+  to {
+    width: 1.25em;    
   }
-  
-  @-webkit-keyframes ellipsis {
-    to {
-      width: 1.25em;    
-    }
-  }
+}

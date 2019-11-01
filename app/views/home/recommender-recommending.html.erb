@@ -1,5 +1,8 @@
 <div class="home-container">
-    <%= link_to "Logout", logout_path, class: 'smaller corner'%>
+    <div class="top-buttons">
+        <%= link_to "Home", home_path, class: 'smaller'%>
+        <%= link_to "Logout", logout_path, class: 'smaller'%>
+    </div>
     <div class='user-container'>
         <h1>You've Got the AUX, <%= current_user.name %></h1>
     </div>

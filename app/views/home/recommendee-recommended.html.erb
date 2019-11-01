@@ -1,5 +1,8 @@
 <div class="recommendee-recommended-container">
-    <%= link_to "Logout", logout_path, class: 'smaller corner'%>
+    <div class="top-buttons">
+        <%= link_to "Home", home_path, class: 'smaller'%>
+        <%= link_to "Logout", logout_path, class: 'smaller'%>
+    </div>
     <div class='recommended-box-container'>
         <h3><b><%= @rec.recommender_name %></b> recommended you the following song: </h3>
         <h2><b>URL</b></h2>
