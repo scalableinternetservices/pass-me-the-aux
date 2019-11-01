@@ -10,11 +10,37 @@ h3 {
   font-family: "Avenir Next";
 }
 
+nav ul {
+  list-style-type: none;
+  padding: 10px;
+  margin: 0;
+  height: 400px;
+  width: 900px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+ul li {
+  border: 3px solid black;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: white;
+  padding: 12px;
+  font-size: 12px;
+  font-family: "Avenir Next";
+}
+
 .h1-title { 
   font-family: "Avenir Next";
   font-weight: bold;
   font-size: 80px; 
   padding: 20px;
+}
+
+.h3-history {
+  font-family: "Avenir Next";
+  font-weight: bold;
+  font-size: 20px; 
+  margin-top: 50px;
 }
 
 .h3-title { 
@@ -38,7 +64,7 @@ h3 {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  height: 60vh;
+  height: 140vh;
 }
 
 .recommendee-recommended-container {
