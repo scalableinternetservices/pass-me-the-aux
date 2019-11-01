@@ -8,6 +8,6 @@ module SessionsHelper
     end
 
     def recommendations
-        @recommendations = Recommendation.take(10)
+        @recommendations = Recommendation.where(requestor_id: session[:user_id]).where.not(url_to_song: nil).all
     end
 end
