@@ -27,6 +27,7 @@ class HomeController < ApplicationController
   def recommendee
     update_role(1)
     status = enter_recommendee
+    puts (status)
     if status == 0
       render 'recommendee-waiting'
     else

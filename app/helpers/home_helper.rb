@@ -4,7 +4,7 @@ module HomeHelper
     end
 
     def enter_recommendee
-        rec = Recommendation.find_by(requestor_id: session[:user_id])
+        rec = Recommendation.find_by(requestor_id: session[:user_id], verdict: nil)
         if rec != nil && rec.url_to_song != nil
             return 1
         elsif rec != nil && rec.url_to_song == nil
