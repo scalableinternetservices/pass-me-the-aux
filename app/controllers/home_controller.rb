@@ -35,4 +35,8 @@ class HomeController < ApplicationController
     end
   end
 
+  def feedback
+    Recommendation.where(requestor_id: session[:user_id]).update_all(verdict: params[:param_1])
+    render 'chooserole'
+  end
 end

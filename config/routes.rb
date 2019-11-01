@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'home/', to: "home#new"
+  get 'home/feedback', to: "home#feedback"
   get 'home/recommend', to: "home#recommend"
   put "home/recommend", to: "home#recommend"
   get 'home/recommendee', to: "home#recommendee"
