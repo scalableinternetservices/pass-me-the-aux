@@ -8,6 +8,6 @@ module SessionsHelper
     end
 
     def recommendations
-        @recommendations = @recommendations || Recommendation.where("requestor_id = %{uid} AND url_to_song IS NOT NULL AND url_to_song <> ''" % { :uid => @current_user.id})
+        @recommendations = Recommendation.where(requestor_id: session[:user_id]).where.not(url_to_song: nil).all
     end
 end
