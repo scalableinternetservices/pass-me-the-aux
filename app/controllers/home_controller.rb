@@ -43,5 +43,17 @@ class HomeController < ApplicationController
   end
 
   def dum_create
-    
+    @user           = User.new
+    @user.id        = rand(1000000)
+    @user.name      = "Shirly Fang"
+    @user.image_url = "https://www.askideas.com/media/12/Cute-Baby-Funny-Pig-Picture.jpg"
+    session[:user] = @user
+    session[:user_id] = @user.id
+    if User.find_by(id: session[:user_id])
+      redirect_to home_path
+    else
+      @user.save
+      redirect_to home_path
+    end
+  end
 end
