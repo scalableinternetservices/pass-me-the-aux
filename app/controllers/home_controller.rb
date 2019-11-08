@@ -7,6 +7,7 @@ class HomeController < ApplicationController
       redirect_to login_path
     end 
   end
+
   def recommend
     update_role(0)
     @currentrecommendation = find_current_recommendee
@@ -24,6 +25,7 @@ class HomeController < ApplicationController
       return
     end
   end
+
   def recommendee
     update_role(1)
     status = enter_recommendee
@@ -39,4 +41,7 @@ class HomeController < ApplicationController
     Recommendation.where(requestor_id: session[:user_id]).update_all(verdict: params[:verdict])
     redirect_to home_path
   end
+
+  def dum_create
+    
 end
