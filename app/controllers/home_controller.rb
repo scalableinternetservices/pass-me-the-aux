@@ -57,4 +57,14 @@ class HomeController < ApplicationController
       redirect_to home_path
     end
   end
+
+  def leaderboard
+    get_scores
+    render 'leaderboard'
+
+  end
+
+
+
+
 end

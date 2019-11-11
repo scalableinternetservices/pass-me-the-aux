@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "/auth/google_oauth2/callback", to: "sessions#create"
   get "/logout", to: "sessions#destroy"
   get '/dummypath/create', to: "home#dum_create"
+  get '/leaderboard', to: "home#leaderboard"
 
   resource :session, only: [:create]
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

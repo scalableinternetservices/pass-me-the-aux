@@ -17,4 +17,19 @@ module HomeHelper
             return 0
         end
     end
+
+    def recommendations
+        @recommendations = Recommendation.where(requestor_id: session[:user_id]).where.not(url_to_song: nil).all
+    end
+
+    def get_scores
+        @scores = Hash.new(0)
+        recs = Recommendation.where.not(verdict: nil).all
+
+        for rec in recs do 
+        @scores[rec.recommender_name] += rec.verdict
+        end
+
+        @scores.sort_by {|k,v| -v}
+    end
 end
