@@ -32,4 +32,8 @@ module HomeHelper
 
         @scores.sort_by {|k,v| -v}
     end
+
+    def recommended?
+        @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).all
+    end
 end

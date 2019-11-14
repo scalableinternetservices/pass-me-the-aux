@@ -2,6 +2,7 @@ class HomeController < ApplicationController
   include RecommenderHelper
   def new
     if logged_in?
+      @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).all
       render 'chooserole'
     else
       redirect_to login_path
