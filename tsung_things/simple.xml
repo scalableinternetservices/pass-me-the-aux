@@ -40,10 +40,14 @@
       <thinktime value="30" random="false"></thinktime>
       <request> <http url="/home/" method="GET"></http> </request>
       <request> <http url="/home/recommendee" method="GET"></http> </request>
+      <thinktime value="30" random="false"></thinktime>
+      <request> <http url="/home/feedback" method= "POST" contents="verdict=2"></http> </request>
     </session>
     <session name="recommender" probability="50" type="ts_http">
       <request> <http url="/dummypath/create" method="GET"></http> </request>
-      <request> <http url="/home/recommend" method="GET"></http> </request>
+      <request> <http url="/home/recommend" method= "GET"></http> </request>
+      <thinktime value="20" random="true"></thinktime>
+      <request> <http url="/home/recommend" method= "PUT" contents="song_url=youtube.com"></http> </request>
       <request> <http url="/home/" method="GET"></http> </request>
     </session>
   </sessions>
