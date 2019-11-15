@@ -47,7 +47,7 @@ class HomeController < ApplicationController
   def dum_create
     @user           = User.new
     @user.id        = rand(1000000)
-    @user.name      = "Shirly Fang"
+    @user.name      = "Jungkook"
     @user.image_url = "https://www.askideas.com/media/12/Cute-Baby-Funny-Pig-Picture.jpg"
     session[:user] = @user
     session[:user_id] = @user.id
