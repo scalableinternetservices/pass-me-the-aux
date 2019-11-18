@@ -40,7 +40,7 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    Recommendation.where(requestor_id: session[:user_id]).update_all(verdict: params[:verdict])
+    Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).update_all(verdict: params[:verdict])
     redirect_to home_path
   end
 
