@@ -1,0 +1,12 @@
+<div class="top-buttons">
+    <%= link_to "Home", home_path, class: 'smaller'%>
+    <%= link_to "Logout", logout_path, class: 'smaller'%>
+</div>
+<h3 class="h3-history"> Recommender Leaderboard </h3>
+<nav>
+    <ul>
+        <% get_scores.each do |element| %>
+          <li><%= element %></li>
+        <% end %>
+    </ul>
+</nav>

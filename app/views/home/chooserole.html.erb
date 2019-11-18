@@ -8,7 +8,12 @@
     </div> 
     <div class="buttons-container">
         <%= link_to "Recommend", home_recommend_path, class: 'medium' %>
-        <%= link_to "Be Recommended", home_recommendee_path, class: 'medium' %>
+        <% if @rec.empty? %>
+            <%= link_to "Be Recommended", home_recommendee_path, class: 'medium' %>    
+        <% else %>
+            <%= link_to "New Song!", home_recommendee_path, class: 'medium-recommended' %>
+        <% end %>
+        <%= link_to "Leaderboard", leaderboard_path, class: 'medium' %>
     </div>
     <h3 class="h3-history"> Past Recommended Songs </h3>
     <nav>
