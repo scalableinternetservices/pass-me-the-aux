@@ -7,7 +7,7 @@
         <h3><b><%= @rec.recommender_name %></b> recommended you the following song: </h3>
         <h2><b>URL</b></h2>
         <div class="url-container">
-            <%= @rec.url_to_song %>
+            <%= link_to @rec.url_to_song.to_s, @rec.url_to_song %>
         </div>
         <div class="buttons-container">
             <%= link_to "COPY", "", class: 'medium'%>

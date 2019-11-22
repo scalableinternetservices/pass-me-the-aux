@@ -5,13 +5,13 @@
         <%= link_to "Logout", logout_path, class: 'smaller'%>
     </div>
     <div class='user-container'>
-        <h1>You've Got the AUX, <%= current_user.name %></h1>
+        <h1>You've got the AUX <%= current_user.name %></h1>
     </div>
-    <h1>Now Make a Recommendation to:</h1>
+    <h1> Make a recommendation to:</h1>
     <h1><%= @currentrecommendation.requestor_name %></h1>
     <form action="/home/recommend" method="put">
-    <input id="song_url" name="song_url" size="30" type="text" class= "song-input" />
-    <input name="commit" type="submit" value="Submit" class="medium" />
+        <input id="song_url" name="song_url" size="30" type="text" class= "song-input" />
+        <input name="commit" type="submit" value="Submit" class="medium" />
     </form>
     <%end%>
 </div>

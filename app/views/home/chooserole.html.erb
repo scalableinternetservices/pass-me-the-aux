@@ -4,7 +4,7 @@
     <div class='user-container'>
     <%= image_tag current_user.image_url, class: "img-circle", width: 48 %>
     <h3> <%= current_user.name %> </h3>
-    <h3> 5 songs </h3>
+    <h3> <%= recommendations_count %> songs</h3>
     </div> 
     <div class="buttons-container">
         <%= link_to "Recommend", home_recommend_path, class: 'medium' %>
@@ -20,9 +20,9 @@
         <nav>
             <ul>
                 <% recommendations.each do |element| %>
-                  <li><%= element.url_to_song %></li>
+                  <li><%= link_to element.url_to_song.to_s, element.url_to_song %></li>
                 <% end %>
             </ul>
         </nav>
-    <%end%>
+    <% end %>
 </div>
