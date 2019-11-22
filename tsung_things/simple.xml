@@ -14,7 +14,7 @@
 
 
   <load>
-        <arrivalphase phase="1" duration="50" unit="second">
+    <arrivalphase phase="1" duration="50" unit="second">
       <users arrivalrate="1" unit="second"/>
     </arrivalphase>
     <arrivalphase phase="2" duration="20" unit="second">
