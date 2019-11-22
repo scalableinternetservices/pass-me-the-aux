@@ -2,8 +2,10 @@ class HomeController < ApplicationController
   include RecommenderHelper
   def new
     if logged_in?
-      @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).all
-      render 'chooserole'
+      if stale?([Recommendation.all])
+        @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).all
+        render 'chooserole'
+      end
     else
       redirect_to login_path
     end 
@@ -11,19 +13,21 @@ class HomeController < ApplicationController
 
   def recommend
     update_role(0)
-    @currentrecommendation = find_current_recommendee
-    if @currentrecommendation == nil
-      render 'recommender-noneavailable'
-      return
-    end
-    song_url = params[:song_url]
-    if song_url != nil
+    if stale?([Recommendation.all])
+      @currentrecommendation = find_current_recommendee
+      if @currentrecommendation == nil
+        render 'recommender-noneavailable'
+        return
+      end
+      song_url = params[:song_url]
+      if song_url != nil
         update_recommendation(song_url)
         render 'recommender-success'
         return
-    else
-      render 'recommender-recommending'
-      return
+      else
+        render 'recommender-recommending'
+        return
+      end
     end
   end
 
