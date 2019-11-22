@@ -14,11 +14,20 @@
 
 
   <load>
-    <arrivalphase phase="1" duration="2" unit="minute">
-      <users arrivalrate="1" unit="second"></users>
+        <arrivalphase phase="1" duration="50" unit="second">
+      <users arrivalrate="1" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="2" duration="10" unit="second">
-      <users arrivalrate="1" unit="second"></users>
+    <arrivalphase phase="2" duration="20" unit="second">
+      <users arrivalrate="2" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="50" unit="second">
+      <users arrivalrate="3" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="4" duration="20" unit="second">
+      <users arrivalrate="4" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="5" duration="20" unit="second">
+      <users arrivalrate="5" unit="second"/>
     </arrivalphase>
     <user session="recommendee" start_time="5" unit="second"></user>
     <user session="recommender" start_time="10" unit="second"></user>
