@@ -13,21 +13,19 @@ class HomeController < ApplicationController
 
   def recommend
     update_role(0)
-    if stale?([Recommendation.all])
-      @currentrecommendation = find_current_recommendee
-      if @currentrecommendation == nil
-        render 'recommender-noneavailable'
-        return
-      end
-      song_url = params[:song_url]
-      if song_url != nil
-        update_recommendation(song_url)
-        render 'recommender-success'
-        return
-      else
-        render 'recommender-recommending'
-        return
-      end
+    @currentrecommendation = find_current_recommendee
+    if @currentrecommendation == nil
+      render 'recommender-noneavailable'
+      return
+    end
+    song_url = params[:song_url]
+    if song_url != nil
+      update_recommendation(song_url)
+      render 'recommender-success'
+      return
+    else
+      render 'recommender-recommending'
+      return
     end
   end
 
