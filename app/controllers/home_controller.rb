@@ -2,10 +2,8 @@ class HomeController < ApplicationController
   include RecommenderHelper
   def new
     if logged_in?
-      if stale?([Recommendation.all])
         @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).all
         render 'chooserole'
-      end
     else
       redirect_to login_path
     end 
@@ -62,9 +60,11 @@ class HomeController < ApplicationController
   end
 
   def leaderboard
-    get_scores
-    render 'leaderboard'
-
+    @recs = Recommendation.where.not(verdict: nil).all
+    if stale?(@recs)
+      get_scores
+      render 'leaderboard'
+    end
   end
 
 

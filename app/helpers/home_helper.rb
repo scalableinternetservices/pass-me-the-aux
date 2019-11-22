@@ -24,12 +24,9 @@ module HomeHelper
 
     def get_scores
         @scores = Hash.new(0)
-        recs = Recommendation.where.not(verdict: nil).all
-
-        for rec in recs do 
+        for rec in @recs do 
         @scores[rec.recommender_name] += rec.verdict
         end
-
         @scores.sort_by {|k,v| -v}
     end
 
