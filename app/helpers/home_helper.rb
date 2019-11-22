@@ -22,6 +22,10 @@ module HomeHelper
         @recommendations = Recommendation.where(requestor_id: session[:user_id]).where.not(url_to_song: nil).all
     end
 
+    def recommendations_count
+        @recommendations = Recommendation.where(requestor_id: session[:user_id]).where.not(url_to_song: nil).all.count
+    end
+
     def get_scores
         @scores = Hash.new(0)
         recs = Recommendation.where.not(verdict: nil).all

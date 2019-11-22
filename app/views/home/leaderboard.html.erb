@@ -6,7 +6,7 @@
 <nav>
     <ul>
         <% get_scores.each do |element| %>
-          <li><%= element %></li>
+          <li><%= element[0] %>: <%= element[1] %></li>
         <% end %>
     </ul>
 </nav>
