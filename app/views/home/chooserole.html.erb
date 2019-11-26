@@ -8,7 +8,7 @@
     </div> 
     <div class="buttons-container">
         <%= link_to "Recommend", home_recommend_path, class: 'medium' %>
-        <% if @rec.empty? %>
+        <% if @rec.nil? %>
             <%= link_to "Be Recommended", home_recommendee_path, class: 'medium' %>    
         <% else %>
             <%= link_to "New Song!", home_recommendee_path, class: 'medium-recommended' %>

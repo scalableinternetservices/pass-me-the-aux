@@ -10,16 +10,16 @@ module HomeHelper
         elsif rec != nil && rec.url_to_song == nil
             return 0
         else
-            @rec           = Recommendation.new
-            @rec.requestor_id        = session[:user_id]
-            @rec.requestor_name      = current_user.name
-            @rec.save
+            @newRec           = Recommendation.new
+            @newRec.requestor_id        = session[:user_id]
+            @newRec.requestor_name      = current_user.name
+            @newRec.save
             return 0
         end
     end
 
     def recommendations
-        @recommendations = Recommendation.where(requestor_id: session[:user_id]).where.not(url_to_song: nil).all
+        @recommendations = Recommendation.where(requestor_id: session[:user_id]).where.not(verdict: nil).where.not(url_to_song: nil).all
     end
 
     def recommendations_count
@@ -38,6 +38,6 @@ module HomeHelper
     end
 
     def recommended?
-        @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).all
+        @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil)
     end
 end
