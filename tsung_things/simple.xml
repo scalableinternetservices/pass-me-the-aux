@@ -44,7 +44,7 @@
     <arrivalphase phase="10" duration="30" unit="second">
       <users arrivalrate="55" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="10" duration="30" unit="second">
+    <arrivalphase phase="11" duration="30" unit="second">
       <users arrivalrate="60" unit="second"/>
     </arrivalphase>
     <user session="recommendee" start_time="5" unit="second"></user>
