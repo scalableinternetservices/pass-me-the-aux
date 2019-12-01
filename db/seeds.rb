@@ -8,6 +8,8 @@
 
 x = 0
 while x < 10000
-    User.create(name: "seed", email: "me@email.com", role: 0, id: rand(1000000), image_url: "https://www.askideas.com/media/12/Cute-Baby-Funny-Pig-Picture.jpg")
+    rand_ID = rand(1000000)
+    User.create(name: "seed", email: "me@email.com", role: 0, id: rand_ID, image_url: "https://www.askideas.com/media/12/Cute-Baby-Funny-Pig-Picture.jpg")
+    Recommendation.create(requestor_name: "seed", requestor_id: rand_ID, url_to_song: "https://open.spotify.com/track/5jsw9uXEGuKyJzs0boZ1bT", recommender_name: "seed", recommender_id: rand_ID, verdict: 1)
     x = x + 1
 end

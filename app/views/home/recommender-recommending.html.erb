@@ -1,5 +1,4 @@
 <div class="home-container">
-    <% cache(cache_key_for_recommendation(@currentrecommendation)) do %>
     <div class="top-buttons">
         <%= link_to "Home", home_path, class: 'smaller'%>
         <%= link_to "Logout", logout_path, class: 'smaller'%>
@@ -10,8 +9,16 @@
     <h1> Make a recommendation to:</h1>
     <h1><%= @currentrecommendation.requestor_name %></h1>
     <form action="/home/recommend" method="put">
-        <input id="song_url" name="song_url" size="30" type="text" class= "song-input" />
-        <input name="commit" type="submit" value="Submit" class="medium" />
+    <input id="song_url" name="song_url" size="30" type="text" class= "song-input" />
+    <input name="commit" type="submit" value="Submit" class="medium" />
     </form>
-    <%end%>
+    <h3 class="h3-history"> Past Recommended Songs </h3>
+    <nav>
+    
+        <ul>
+            <% @recommendee_history.each do |element| %>
+              <li><%= link_to element.url_to_song.to_s, element.url_to_song %></li>
+            <% end %>
+        </ul>
+    </nav>
 </div>

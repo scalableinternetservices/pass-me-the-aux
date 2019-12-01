@@ -14,15 +14,42 @@
 
 
   <load>
-    <arrivalphase phase="1" duration="2" unit="minute">
-      <users arrivalrate="1" unit="second"></users>
+    <arrivalphase phase="1" duration="30" unit="second">
+      <users arrivalrate="10" unit="second"/>
     </arrivalphase>
-    <arrivalphase phase="2" duration="10" unit="second">
-      <users arrivalrate="1" unit="second"></users>
+    <arrivalphase phase="2" duration="30" unit="second">
+      <users arrivalrate="15" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="3" duration="30" unit="second">
+      <users arrivalrate="20" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="4" duration="30" unit="second">
+      <users arrivalrate="25" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="5" duration="30" unit="second">
+      <users arrivalrate="30" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="6" duration="30" unit="second">
+      <users arrivalrate="35" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="7" duration="30" unit="second">
+      <users arrivalrate="40" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="8" duration="30" unit="second">
+      <users arrivalrate="45" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="9" duration="30" unit="second">
+      <users arrivalrate="50" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="10" duration="30" unit="second">
+      <users arrivalrate="55" unit="second"/>
+    </arrivalphase>
+    <arrivalphase phase="11" duration="30" unit="second">
+      <users arrivalrate="60" unit="second"/>
     </arrivalphase>
     <user session="recommendee" start_time="5" unit="second"></user>
     <user session="recommender" start_time="10" unit="second"></user>
-  </load>
+  </load>  
 
   <options>
     <!-- Set connection timeout to 2 seconds -->
@@ -38,15 +65,23 @@
       <request> <http url="/dummypath/create" method="GET"></http> </request>
       <request> <http url="/home/recommendee" method="GET"></http> </request>
       <request> <http url="/home/" method="GET"></http> </request>
-      <thinktime value="100" random="false"></thinktime>
+      <thinktime value="70" random="false"></thinktime>
       <request> <http url="/home/recommendee" method="GET"></http> </request>
+      <thinktime value="10" random="false"></thinktime>
       <request> <http url="/home/feedback?verdict=2" method= "GET"></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
+      <request> <http url="/home" method="GET"></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
     </session>
     <session name="recommender" probability="50" type="ts_http">
       <request> <http url="/dummypath/create" method="GET"></http> </request>
       <thinktime value="30" random="false"></thinktime>
       <request> <http url="/home/recommend" method="GET"></http> </request>
+      <thinktime value="5" random="false"></thinktime>
       <request> <http url="/home/recommend?song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DeXBu09fwe3I&amp;commit=Submit" version='1.1' method= "GET" ></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
+      <request> <http url="/home" method="GET"></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
     </session>
   </sessions>
 </tsung>
