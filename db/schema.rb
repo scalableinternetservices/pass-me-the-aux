@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_003218) do
     t.integer "verdict"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index "\"name\"", name: "index_recommendations_on_name"
   end
 
   create_table "users", id: false, force: :cascade do |t|
