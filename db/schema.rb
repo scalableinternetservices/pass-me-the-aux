@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_003218) do
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_users_on_name"
   end
 
 end
