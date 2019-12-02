@@ -6,7 +6,7 @@
 
 
 workers Integer(ENV['WEB_CONCURRENCY'] || 1)
-threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 1)
+threads_count = Integer(ENV['RAILS_MAX_THREADS'] || 16)
 threads threads_count, threads_count
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
