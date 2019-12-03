@@ -15,12 +15,14 @@
         <% end %>
         <%= link_to "Leaderboard", leaderboard_path, class: 'medium' %>
     </div>
-    <h3 class="h3-history"> Past Recommended Songs </h3>
-    <nav>
-        <ul>
-            <% recommendations.each do |element| %>
-              <li><%= link_to element.url_to_song.to_s, element.url_to_song %></li>
-            <% end %>
-        </ul>
-    </nav>
+    <% cache(cache_key_for_past_table(recommendations)) do%>
+        <h3 class="h3-history"> Past Recommended Songs </h3>
+        <nav>
+            <ul>
+                <% recommendations.each do |element| %>
+                  <li><%= link_to element.url_to_song.to_s, element.url_to_song %></li>
+                <% end %>
+            </ul>
+        </nav>
+    <% end %>
 </div>

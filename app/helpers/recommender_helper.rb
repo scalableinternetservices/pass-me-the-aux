@@ -25,4 +25,8 @@ module RecommenderHelper
         end
         return unfinished_recommendation
     end
+
+    def cache_key_for_recommendation(recommendation)
+        "recommendation-#{recommendation.requestor_id}-#{recommendation.recommender_id}"
+    end
 end

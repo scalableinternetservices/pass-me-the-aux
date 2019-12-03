@@ -33,4 +33,8 @@ module HomeHelper
     def recommended?
         @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil)
     end
+
+    def cache_key_for_past_table(recommendations)
+        "past-recommendations-#{recommendations.count}"
+    end
 end

@@ -69,6 +69,9 @@
       <request> <http url="/home/recommendee" method="GET"></http> </request>
       <thinktime value="10" random="false"></thinktime>
       <request> <http url="/home/feedback?verdict=2" method= "GET"></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
+      <request> <http url="/home" method="GET"></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
     </session>
     <session name="recommender" probability="50" type="ts_http">
       <request> <http url="/dummypath/create" method="GET"></http> </request>
@@ -76,6 +79,9 @@
       <request> <http url="/home/recommend" method="GET"></http> </request>
       <thinktime value="5" random="false"></thinktime>
       <request> <http url="/home/recommend?song_url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DeXBu09fwe3I&amp;commit=Submit" version='1.1' method= "GET" ></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
+      <request> <http url="/home" method="GET"></http> </request>
+      <request> <http url="/leaderboard" method="GET"></http> </request>
     </session>
   </sessions>
 </tsung>
