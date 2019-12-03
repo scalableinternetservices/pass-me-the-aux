@@ -43,7 +43,10 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).update_all(verdict: params[:verdict])
+    @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).update_all(verdict: params[:verdict])
+    reco = Recommendation.find_by(requestor_id: session[:user_id])
+    scoreo = Score.find_by(user_id: reco.recommender_id)
+    Score.where(user_id: reco.recommender_id).update(score: (scoreo.score + params[:verdict].to_i))
     redirect_to home_path
   end
 
@@ -54,6 +57,11 @@ class HomeController < ApplicationController
     @user.image_url = "https://www.askideas.com/media/12/Cute-Baby-Funny-Pig-Picture.jpg"
     session[:user] = @user
     session[:user_id] = @user.id
+    @score          = Score.new
+    @score.user_id  = @user.id
+    @score.name = "Jungkook"
+    @score.score    = 0
+    @score.save
     if User.find_by(id: session[:user_id])
       redirect_to home_path
     else
