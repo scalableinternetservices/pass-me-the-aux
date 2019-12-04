@@ -63,11 +63,11 @@ class HomeController < ApplicationController
   end
 
   def leaderboard
-    @recs = Recommendation.where.not(verdict: nil).all
-    if stale?(@recs)
+  #  @recs = Recommendation.where.not(verdict: nil).all
+    #if stale?(@recs)
       get_scores
-      render 'leaderboard'
-    end
+    #  render 'leaderboard'
+   # end
   end
 
 
