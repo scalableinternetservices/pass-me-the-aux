@@ -72,6 +72,7 @@
       <request> <http url="/leaderboard" method="GET"></http> </request>
       <request> <http url="/home" method="GET"></http> </request>
       <request> <http url="/leaderboard" method="GET"></http> </request>
+       <request> <http url="/home" method="GET"></http> </request>
     </session>
     <session name="recommender" probability="50" type="ts_http">
       <request> <http url="/dummypath/create" method="GET"></http> </request>
@@ -82,6 +83,7 @@
       <request> <http url="/leaderboard" method="GET"></http> </request>
       <request> <http url="/home" method="GET"></http> </request>
       <request> <http url="/leaderboard" method="GET"></http> </request>
+      <request> <http url="/home" method="GET"></http> </request>
     </session>
   </sessions>
 </tsung>
