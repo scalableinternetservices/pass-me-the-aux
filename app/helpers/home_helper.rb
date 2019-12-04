@@ -27,7 +27,7 @@ module HomeHelper
     end
 
     def get_scores
-        @scores = Score.where.not(user_id: nil).all.sort_by(&:score).reverse
+        @scores = Score.order("score DESC").limit(10)
     end
 
     def recommended?

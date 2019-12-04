@@ -14,7 +14,7 @@ class HomeController < ApplicationController
     @currentrecommendation = find_current_recommendee
     puts @currentrecommendation
     if @currentrecommendation && !@currentrecommendation.nil?
-    @recommendee_history = Recommendation.where(requestor_id: @currentrecommendation.requestor_id).where.not(url_to_song: nil).all
+      @recommendee_history = Recommendation.where(requestor_id: @currentrecommendation.requestor_id).where.not(url_to_song: nil).all
     end
     if @currentrecommendation == nil
       render 'recommender-noneavailable'
