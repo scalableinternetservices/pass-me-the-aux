@@ -22,9 +22,9 @@ class HomeController < ApplicationController
     end
     song_url = params[:song_url]
     if song_url != nil
-      update_recommendation(song_url)
-      render 'recommender-success'
-      return
+        update_recommendation(song_url)
+        render 'recommender-success'
+        return
     else
       render 'recommender-recommending'
       return
@@ -71,11 +71,9 @@ class HomeController < ApplicationController
   end
 
   def leaderboard
-    @recs = Recommendation.where.not(verdict: nil).all
-    if stale?(@recs)
-      get_scores
-      render 'leaderboard'
-    end
+    get_scores
+    render 'leaderboard'
+
   end
 
 
