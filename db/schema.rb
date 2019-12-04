@@ -21,14 +21,12 @@ ActiveRecord::Schema.define(version: 2019_12_03_183118) do
     t.integer "verdict"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"name\"", name: "index_recommendations_on_name"
   end
 
   create_table "scores", force: :cascade do |t|
     t.string "user_id"
     t.integer "score"
     t.string "user_name"
-    t.index "\"name\"", name: "index_scores_on_name"
   end
 
   create_table "users", id: false, force: :cascade do |t|
