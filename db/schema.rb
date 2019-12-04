@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_03_183118) do
+ActiveRecord::Schema.define(version: 2019_12_04_074841) do
 
   create_table "recommendations", force: :cascade do |t|
     t.string "requestor_name"
@@ -21,14 +21,14 @@ ActiveRecord::Schema.define(version: 2019_12_03_183118) do
     t.integer "verdict"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"name\"", name: "index_recommendations_on_name"
+    t.index ["requestor_id"], name: "index_recommendations_on_requestor_id"
   end
 
   create_table "scores", force: :cascade do |t|
     t.string "user_id"
     t.integer "score"
     t.string "user_name"
-    t.index "\"name\"", name: "index_scores_on_name"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "users", id: false, force: :cascade do |t|
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_12_03_183118) do
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["name"], name: "index_users_on_name"
+    t.index ["id"], name: "index_users_on_id"
   end
 
 end
