@@ -1,5 +1,5 @@
 class AddIndexScores < ActiveRecord::Migration[6.0]
   def change
-    add_index :scores, :name
+    add_index :scores, :user_id
   end
 end
