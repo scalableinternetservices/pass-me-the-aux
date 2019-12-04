@@ -59,7 +59,7 @@ class HomeController < ApplicationController
     session[:user_id] = @user.id
     @score          = Score.new
     @score.user_id  = @user.id
-    @score.name = "Jungkook"
+    @score.user_name = "Jungkook"
     @score.score    = 0
     @score.save
     if User.find_by(id: session[:user_id])
