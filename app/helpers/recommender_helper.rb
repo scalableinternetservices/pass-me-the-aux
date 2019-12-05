@@ -1,6 +1,9 @@
 module RecommenderHelper
     def update_recommendation(song_url)
         @currentrecommendation.update_attributes(:url_to_song => song_url)
+        @currentrecommendation.update_attributes(:recommender_id => session[:user_id])
+        recommender_name = User.find_by(id: session[:user_id]).name
+        @currentrecommendation.update_attributes(:recommender_name => recommender_name)
     end
 
     def find_current_recommendee

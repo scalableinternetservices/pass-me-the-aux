@@ -27,11 +27,7 @@ module HomeHelper
     end
 
     def get_scores
-        @scores = Hash.new(0)
-        for rec in @recs do 
-        @scores[rec.recommender_name] += rec.verdict
-        end
-        @scores.sort_by {|k,v| -v}
+        @scores = Score.order("score DESC").limit(10)
     end
 
     def recommended?

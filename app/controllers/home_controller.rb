@@ -2,7 +2,10 @@ class HomeController < ApplicationController
   include RecommenderHelper
   def new
     if logged_in?
-      @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).first
+      @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).limit(1)
+      if @rec.length <= 0
+        @rec = nil
+      end
       render 'chooserole'
     else
       redirect_to login_path
@@ -14,7 +17,7 @@ class HomeController < ApplicationController
     @currentrecommendation = find_current_recommendee
     puts @currentrecommendation
     if @currentrecommendation && !@currentrecommendation.nil?
-    @recommendee_history = Recommendation.where(requestor_id: @currentrecommendation.requestor_id).where.not(url_to_song: nil).all
+      @recommendee_history = Recommendation.where(requestor_id: @currentrecommendation.requestor_id).where.not(url_to_song: nil).all
     end
     if @currentrecommendation == nil
       render 'recommender-noneavailable'
@@ -22,9 +25,9 @@ class HomeController < ApplicationController
     end
     song_url = params[:song_url]
     if song_url != nil
-      update_recommendation(song_url)
-      render 'recommender-success'
-      return
+        update_recommendation(song_url)
+        render 'recommender-success'
+        return
     else
       render 'recommender-recommending'
       return
@@ -43,7 +46,10 @@ class HomeController < ApplicationController
   end
 
   def feedback
-    Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).update_all(verdict: params[:verdict])
+    @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).update_all(verdict: params[:verdict])
+    reco = Recommendation.find_by(requestor_id: session[:user_id])
+    scoreo = Score.find_by(user_id: reco.recommender_id)
+    Score.where(user_id: reco.recommender_id).update(score: (scoreo.score + params[:verdict].to_i))
     redirect_to home_path
   end
 
@@ -54,6 +60,11 @@ class HomeController < ApplicationController
     @user.image_url = "https://www.askideas.com/media/12/Cute-Baby-Funny-Pig-Picture.jpg"
     session[:user] = @user
     session[:user_id] = @user.id
+    @score          = Score.new
+    @score.user_id  = @user.id
+    @score.user_name = "Jungkook"
+    @score.score    = 0
+    @score.save
     if User.find_by(id: session[:user_id])
       redirect_to home_path
     else
@@ -63,11 +74,9 @@ class HomeController < ApplicationController
   end
 
   def leaderboard
-    @recs = Recommendation.where.not(verdict: nil).all
-    if stale?(@recs)
-      get_scores
-      render 'leaderboard'
-    end
+    get_scores
+    render 'leaderboard'
+
   end
 
 

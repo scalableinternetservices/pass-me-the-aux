@@ -7,9 +7,15 @@ class SessionsController < ApplicationController
     @user.image_url = user_info["info"]["image"]
     session[:user] = @user
     session[:user_id] = user_info["uid"]
+
     if User.find_by(id: session[:user_id])
       redirect_to home_path
     else
+      @score          = Score.new
+      @score.user_id  = @user.id
+      @score.score    = 0
+      @score.user_name     = @user.name
+      @score.save
       @user.save
       redirect_to home_path
     end

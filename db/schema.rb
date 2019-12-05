@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_003218) do
+ActiveRecord::Schema.define(version: 2019_12_04_192727) do
 
   create_table "recommendations", force: :cascade do |t|
     t.string "requestor_name"
@@ -21,6 +21,16 @@ ActiveRecord::Schema.define(version: 2019_10_21_003218) do
     t.integer "verdict"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["requestor_id", "url_to_song", "recommender_id", "verdict"], name: "index_recommendations"
+    t.index ["requestor_id"], name: "index_recommendations_on_requestor_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.string "user_id"
+    t.integer "score"
+    t.string "user_name"
+    t.index ["score", "user_id", "user_name"], name: "index_scores_on_score_and_user_id_and_user_name"
+    t.index ["user_id"], name: "index_scores_on_user_id"
   end
 
   create_table "users", id: false, force: :cascade do |t|
@@ -31,6 +41,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_003218) do
     t.string "image_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["id"], name: "index_users_on_id"
+    t.index ["name", "email", "role", "id"], name: "index_users_on_name_and_email_and_role_and_id"
   end
 
 end
