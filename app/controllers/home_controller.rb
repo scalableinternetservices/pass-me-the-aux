@@ -2,7 +2,10 @@ class HomeController < ApplicationController
   include RecommenderHelper
   def new
     if logged_in?
-      @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).first
+      @rec = Recommendation.where(requestor_id: session[:user_id]).where(verdict: nil).where.not(url_to_song: nil).limit(1)
+      if @rec.length <= 0
+        @rec = nil
+      end
       render 'chooserole'
     else
       redirect_to login_path
